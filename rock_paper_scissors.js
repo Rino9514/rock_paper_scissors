@@ -39,7 +39,14 @@ function playRound(humanChoice,computerChoice) {
     console.log("Human score : " + humanScore + " Computer score : " + computerScore);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for (let step = 0; step < 5; step++) {
+        // Runs 5 times, with values of step 0 through 4.
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+    return humanScore > computerScore ? "Vous avez gagné " + humanScore + "-" + computerScore
+         : humanScore < computerScore ? "Vous avez perdu " + humanScore + "-" + computerScore
+         : "Match nul " + humanScore + "-" + computerScore;
+}
 
-playRound(humanSelection, computerSelection);
+console.log(playGame());
