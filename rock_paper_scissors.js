@@ -44,9 +44,29 @@ function playGame() {
         // Runs 5 times, with values of step 0 through 4.
         playRound(getHumanChoice(),getComputerChoice());
     }
+    playRound(getHumanChoice(),getComputerChoice());
     return humanScore > computerScore ? "Vous avez gagné " + humanScore + "-" + computerScore
          : humanScore < computerScore ? "Vous avez perdu " + humanScore + "-" + computerScore
          : "Match nul " + humanScore + "-" + computerScore;
 }
 
-console.log(playGame());
+const container = document.querySelector("div");
+
+container.addEventListener("click", (event) => {
+    let target = event.target;
+
+    switch(target.dataset.btn) {
+        case 'rock':
+            playRound(target.dataset.btn,getComputerChoice());
+            break;
+        case 'paper':
+            playRound(target.dataset.btn,getComputerChoice());
+            break;
+        case 'scissors':
+            playRound(target.dataset.btn,getComputerChoice());
+            break;
+    }
+})
+
+
+// console.log(playGame());
